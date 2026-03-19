@@ -15,12 +15,12 @@ Requires Python 3.11+ and [pandoc](https://pandoc.org/) on PATH.
 
 ```bash
 # Initialize config in current directory
-tex2obsidian init --profile schuller
+tex2obsidian init --profile <name>
 
 # Edit tex2obsidian.toml to set your paths
 # then:
 tex2obsidian convert              # convert all files
-tex2obsidian convert 12grassmann.tex  # convert one file
+tex2obsidian convert lecture01.tex    # convert one file
 tex2obsidian convert --dry-run    # preview without writing
 tex2obsidian check                # validate config + pandoc
 ```
@@ -34,9 +34,9 @@ tex2obsidian check                # validate config + pandoc
 
 ## Configuration
 
-All corpus-specific settings (macros, file mappings, callout styles, pandoc args) live in TOML profile files. The built-in `schuller` profile covers 26 Schuller physics lectures. Create your own profile for other corpora.
+All corpus-specific settings (macros, file mappings, callout styles, pandoc args) live in TOML profile files. Built-in profiles are shipped for reference; create your own for other corpora.
 
-See `src/tex2obsidian/profiles/schuller.toml` for a complete example.
+See `src/tex2obsidian/profiles/` for examples.
 
 ## Development
 

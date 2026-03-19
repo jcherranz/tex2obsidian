@@ -7,7 +7,7 @@ LaTeX-to-Obsidian converter. Generic engine in Python, corpus rules in TOML prof
 Pipeline: preprocess (macro expansion) -> pandoc + Lua filter -> postprocess (callouts, math) -> splice into target .md
 
 - `src/tex2obsidian/` - package source
-- `src/tex2obsidian/profiles/` - TOML profile files (default.toml, schuller.toml)
+- `src/tex2obsidian/profiles/` - TOML profile files (default.toml + corpus-specific)
 - `src/tex2obsidian/pandoc_filters/` - Lua filters for pandoc
 - `tests/` - pytest suite; `@pytest.mark.pandoc` marks tests needing pandoc
 
@@ -23,7 +23,7 @@ make test-full   # run all tests including pandoc integration
 
 ```bash
 tex2obsidian convert [FILES...] [--config FILE] [--profile NAME] [--dry-run]
-tex2obsidian init [--profile schuller]
+tex2obsidian init [--profile NAME]
 tex2obsidian check [--config FILE]
 ```
 
