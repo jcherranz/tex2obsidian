@@ -55,3 +55,23 @@ class TestCliDispatch:
         monkeypatch.chdir(tmp_path)
         with pytest.raises(SystemExit):
             main(["convert", "--config", "nonexistent.toml"])
+
+    def test_convert_with_profile_no_config(self, tmp_path, monkeypatch):
+        """convert --profile schuller should not crash even without a config file."""
+        monkeypatch.chdir(tmp_path)
+        # Will fail because no .tex files exist, but should not crash on config loading
+        result = main(["convert", "--profile", "schuller"])
+        # All 26 files missing = 26 failures
+        assert result == 1
+
+    def test_bare_invocation_with_args(self, tmp_path, monkeypatch):
+        """tex2obsidian --dry-run should default to convert --dry-run."""
+        monkeypatch.chdir(tmp_path)
+        result = main(["--dry-run"])
+        assert result == 1  # no file mappings, but should not crash
+
+    def test_bare_invocation_with_file(self, tmp_path, monkeypatch):
+        """tex2obsidian file.tex should default to convert file.tex."""
+        monkeypatch.chdir(tmp_path)
+        result = main(["file.tex"])
+        assert result == 1  # no config, but should not crash

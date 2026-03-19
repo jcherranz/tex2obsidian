@@ -68,9 +68,15 @@ class Config:
 
 def _load_builtin_profile(name: str) -> dict:
     """Load a built-in profile TOML from the package."""
+    # Sanitize: profile name must be alphanumeric/hyphens/underscores only
+    if not all(c.isalnum() or c in '-_' for c in name):
+        raise ValueError(f"Invalid profile name: {name!r}")
     profile_dir = resources.files("tex2obsidian") / "profiles"
     profile_path = profile_dir / f"{name}.toml"
-    return tomllib.loads(profile_path.read_text(encoding="utf-8"))
+    try:
+        return tomllib.loads(profile_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        raise ValueError(f"Unknown profile: {name!r}")
 
 
 def _deep_merge(base: dict, override: dict) -> dict:

@@ -54,13 +54,21 @@ def cmd_convert(args):
     """Convert .tex files to Obsidian markdown."""
     config_path = _find_config(args.config)
     if config_path is None and args.profile:
-        # No config file; build a minimal config from profile
-        import tomllib
-        from importlib import resources
-        profile_dir = resources.files("tex2obsidian") / "profiles"
-        profile_path = profile_dir / f"{args.profile}.toml"
-        data = tomllib.loads(profile_path.read_text(encoding="utf-8"))
-        config = Config(data)
+        # No config file; write a temporary one referencing the profile
+        import tempfile
+        toml_content = (
+            f'profile = "{args.profile}"\n\n'
+            f'[paths]\nsource_dir = "."\ntarget_dir = "."\n'
+        )
+        with tempfile.NamedTemporaryFile(
+            mode='w', suffix='.toml', delete=False, encoding='utf-8'
+        ) as f:
+            f.write(toml_content)
+            config_path = Path(f.name)
+        try:
+            config = load_config(config_path)
+        finally:
+            config_path.unlink(missing_ok=True)
     else:
         config = load_config(config_path)
 
@@ -206,11 +214,18 @@ def main(argv=None):
     p_check = sub.add_parser('check', help='Validate config and dependencies')
     p_check.add_argument('--config', help='Path to tex2obsidian.toml')
 
-    args = parser.parse_args(argv)
+    # Bare invocation (no subcommand) defaults to convert.
+    # parse_known_args rejects positional args that aren't valid subcommands,
+    # so we catch that and retry with 'convert' prepended.
+    effective_argv = argv if argv is not None else sys.argv[1:]
+    try:
+        args, remaining = parser.parse_known_args(effective_argv)
+    except SystemExit:
+        args = parser.parse_args(['convert'] + effective_argv)
+        remaining = []
 
-    # Bare invocation (no subcommand) defaults to convert
     if args.command is None:
-        args = parser.parse_args(['convert'] + (argv or sys.argv[1:]))
+        args = parser.parse_args(['convert'] + remaining)
 
     if args.command == 'convert':
         return cmd_convert(args)

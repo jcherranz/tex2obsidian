@@ -53,6 +53,25 @@ class TestLoadConfig:
         assert str(config.source_dir) == "/my/src"
 
 
+    def test_invalid_profile_name_rejected(self, tmp_path):
+        toml = tmp_path / "test.toml"
+        toml.write_text(
+            'profile = "../../pyproject"\n\n[paths]\nsource_dir = "/tmp"\ntarget_dir = "/tmp"\n',
+            encoding='utf-8',
+        )
+        with pytest.raises(ValueError, match="Invalid profile name"):
+            load_config(toml)
+
+    def test_unknown_profile_rejected(self, tmp_path):
+        toml = tmp_path / "test.toml"
+        toml.write_text(
+            'profile = "nonexistent"\n\n[paths]\nsource_dir = "/tmp"\ntarget_dir = "/tmp"\n',
+            encoding='utf-8',
+        )
+        with pytest.raises(ValueError, match="Unknown profile"):
+            load_config(toml)
+
+
 class TestResolveLuaFilter:
     def test_filter_exists(self):
         path = resolve_lua_filter()
