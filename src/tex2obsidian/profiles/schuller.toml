@@ -1,0 +1,459 @@
+## Schuller profile: Geometric Anatomy of Theoretical Physics (26 lectures)
+
+[splice]
+marker = "### Full Lecture Content"
+fix_notable_passages = true
+
+# ---------- environment shortcuts (text mode) ----------
+
+[[macros.env]]
+cmd = "\\btab"
+expansion = "\\begin{table}"
+[[macros.env]]
+cmd = "\\etab"
+expansion = "\\end{table}"
+[[macros.env]]
+cmd = "\\btb"
+expansion = "\\begin{tabular}"
+[[macros.env]]
+cmd = "\\etb"
+expansion = "\\end{tabular}"
+[[macros.env]]
+cmd = "\\ben"
+expansion = "\\begin{enumerate}"
+[[macros.env]]
+cmd = "\\een"
+expansion = "\\end{enumerate}"
+[[macros.env]]
+cmd = "\\bse"
+expansion = "\\begin{equation*}"
+[[macros.env]]
+cmd = "\\ese"
+expansion = "\\end{equation*}"
+[[macros.env]]
+cmd = "\\bnn"
+expansion = "\\begin{notation}"
+[[macros.env]]
+cmd = "\\enn"
+expansion = "\\end{notation}"
+[[macros.env]]
+cmd = "\\bit"
+expansion = "\\begin{itemize}"
+[[macros.env]]
+cmd = "\\eit"
+expansion = "\\end{itemize}"
+[[macros.env]]
+cmd = "\\bi"
+expansion = "\\begin{IEEEeqnarray*}"
+[[macros.env]]
+cmd = "\\ei"
+expansion = "\\end{IEEEeqnarray*}"
+[[macros.env]]
+cmd = "\\ba"
+expansion = "\\begin{array}"
+[[macros.env]]
+cmd = "\\ea"
+expansion = "\\end{array}"
+[[macros.env]]
+cmd = "\\bc"
+expansion = "\\begin{corollary}"
+[[macros.env]]
+cmd = "\\ec"
+expansion = "\\end{corollary}"
+[[macros.env]]
+cmd = "\\bd"
+expansion = "\\begin{definition}"
+[[macros.env]]
+cmd = "\\ed"
+expansion = "\\end{definition}"
+[[macros.env]]
+cmd = "\\be"
+expansion = "\\begin{example}"
+[[macros.env]]
+cmd = "\\ee"
+expansion = "\\end{example}"
+[[macros.env]]
+cmd = "\\bl"
+expansion = "\\begin{lemma}"
+[[macros.env]]
+cmd = "\\el"
+expansion = "\\end{lemma}"
+[[macros.env]]
+cmd = "\\bn"
+expansion = "\\begin{note}"
+[[macros.env]]
+cmd = "\\en"
+expansion = "\\end{note}"
+[[macros.env]]
+cmd = "\\bp"
+expansion = "\\begin{proposition}"
+[[macros.env]]
+cmd = "\\ep"
+expansion = "\\end{proposition}"
+[[macros.env]]
+cmd = "\\bq"
+expansion = "\\begin{proof}"
+[[macros.env]]
+cmd = "\\eq"
+expansion = "\\end{proof}"
+[[macros.env]]
+cmd = "\\br"
+expansion = "\\begin{remark}"
+[[macros.env]]
+cmd = "\\er"
+expansion = "\\end{remark}"
+[[macros.env]]
+cmd = "\\bs"
+expansion = "\\begin{solution}"
+[[macros.env]]
+cmd = "\\es"
+expansion = "\\end{solution}"
+[[macros.env]]
+cmd = "\\bt"
+expansion = "\\begin{theorem}"
+[[macros.env]]
+cmd = "\\et"
+expansion = "\\end{theorem}"
+
+# ---------- math shortcuts ----------
+
+[[macros.math]]
+cmd = "\\smallblackbox"
+expansion = "\\blacksquare"
+[[macros.math]]
+cmd = "\\lacts"
+expansion = "\\vartriangleright"
+[[macros.math]]
+cmd = "\\racts"
+expansion = "\\vartriangleleft"
+[[macros.math]]
+cmd = "\\Riem"
+expansion = "\\mathrm{Riem}"
+[[macros.math]]
+cmd = "\\iset"
+expansion = "\\cong_{\\mathrm{set}}"
+[[macros.math]]
+cmd = "\\lspan"
+expansion = "\\operatorname{span}"
+[[macros.math]]
+cmd = "\\preim"
+expansion = "\\operatorname{preim}"
+[[macros.math]]
+cmd = "\\proj"
+expansion = "\\operatorname{proj}"
+[[macros.math]]
+cmd = "\\eqv"
+expansion = "\\Leftrightarrow"
+[[macros.math]]
+cmd = "\\imp"
+expansion = "\\Rightarrow"
+[[macros.math]]
+cmd = "\\img"
+expansion = "\\mathrm{im}"
+[[macros.math]]
+cmd = "\\wto"
+expansion = "\\rightharpoonup"
+[[macros.math]]
+cmd = "\\Mat"
+expansion = "\\mathrm{Mat}"
+[[macros.math]]
+cmd = "\\Hol"
+expansion = "\\operatorname{Hol}"
+[[macros.math]]
+cmd = "\\Hom"
+expansion = "\\operatorname{Hom}"
+[[macros.math]]
+cmd = "\\hor"
+expansion = "\\operatorname{hor}"
+[[macros.math]]
+cmd = "\\Aut"
+expansion = "\\operatorname{Aut}"
+[[macros.math]]
+cmd = "\\Der"
+expansion = "\\operatorname{Der}"
+[[macros.math]]
+cmd = "\\End"
+expansion = "\\operatorname{End}"
+[[macros.math]]
+cmd = "\\vol"
+expansion = "\\operatorname{vol}"
+[[macros.math]]
+cmd = "\\ver"
+expansion = "\\operatorname{ver}"
+[[macros.math]]
+cmd = "\\sgn"
+expansion = "\\operatorname{sgn}"
+[[macros.math]]
+cmd = "\\ad"
+expansion = "\\operatorname{ad}"
+[[macros.math]]
+cmd = "\\Ad"
+expansion = "\\operatorname{Ad}"
+[[macros.math]]
+cmd = "\\ev"
+expansion = "\\operatorname{ev}"
+[[macros.math]]
+cmd = "\\Gr"
+expansion = "\\operatorname{Gr}"
+[[macros.math]]
+cmd = "\\id"
+expansion = "\\operatorname{id}"
+[[macros.math]]
+cmd = "\\im"
+expansion = "\\operatorname{im}"
+[[macros.math]]
+cmd = "\\tr"
+expansion = "\\operatorname{tr}"
+[[macros.math]]
+cmd = "\\GL"
+expansion = "\\operatorname{GL}"
+[[macros.math]]
+cmd = "\\SL"
+expansion = "\\operatorname{SL}"
+[[macros.math]]
+cmd = "\\SO"
+expansion = "\\operatorname{SO}"
+[[macros.math]]
+cmd = "\\SU"
+expansion = "\\operatorname{SU}"
+[[macros.math]]
+cmd = "\\Ort"
+expansion = "\\operatorname{O}"
+
+# Calligraphic
+[[macros.math]]
+cmd = "\\cA"
+expansion = "\\mathcal{A}"
+[[macros.math]]
+cmd = "\\cF"
+expansion = "\\mathcal{F}"
+[[macros.math]]
+cmd = "\\cH"
+expansion = "\\mathcal{H}"
+[[macros.math]]
+cmd = "\\cJ"
+expansion = "\\mathcal{J}"
+[[macros.math]]
+cmd = "\\cK"
+expansion = "\\mathcal{K}"
+[[macros.math]]
+cmd = "\\cL"
+expansion = "\\mathcal{L}"
+[[macros.math]]
+cmd = "\\cO"
+expansion = "\\mathcal{O}"
+[[macros.math]]
+cmd = "\\cP"
+expansion = "\\mathcal{P}"
+
+# Fraktur (Lie algebras)
+[[macros.math]]
+cmd = "\\gl"
+expansion = "\\mathfrak{gl}"
+[[macros.math]]
+cmd = "\\ort"
+expansion = "\\mathfrak{o}"
+[[macros.math]]
+cmd = "\\sl"
+expansion = "\\mathfrak{sl}"
+[[macros.math]]
+cmd = "\\so"
+expansion = "\\mathfrak{so}"
+[[macros.math]]
+cmd = "\\su"
+expansion = "\\mathfrak{su}"
+
+# Blackboard bold
+[[macros.math]]
+cmd = "\\C"
+expansion = "\\mathbb{C}"
+[[macros.math]]
+cmd = "\\F"
+expansion = "\\mathbb{F}"
+[[macros.math]]
+cmd = "\\N"
+expansion = "\\mathbb{N}"
+[[macros.math]]
+cmd = "\\Q"
+expansion = "\\mathbb{Q}"
+[[macros.math]]
+cmd = "\\R"
+expansion = "\\mathbb{R}"
+[[macros.math]]
+cmd = "\\Z"
+expansion = "\\mathbb{Z}"
+
+# Formatting / operators
+[[macros.math]]
+cmd = "\\cl"
+expansion = "\\colon"
+[[macros.math]]
+cmd = "\\ds"
+expansion = "\\displaystyle"
+[[macros.math]]
+cmd = "\\ic"
+expansion = "\\mathrm{i}"
+[[macros.math]]
+cmd = "\\la"
+expansion = "\\langle"
+[[macros.math]]
+cmd = "\\ol"
+expansion = "\\overline"
+[[macros.math]]
+cmd = "\\ra"
+expansion = "\\rangle"
+[[macros.math]]
+cmd = "\\re"
+expansion = "\\Re\\mathrm{e}"
+[[macros.math]]
+cmd = "\\se"
+expansion = "\\subseteq"
+[[macros.math]]
+cmd = "\\sm"
+expansion = "\\setminus"
+[[macros.math]]
+cmd = "\\ss"
+expansion = "\\subset"
+[[macros.math]]
+cmd = "\\ua"
+expansion = "\\nearrow"
+[[macros.math]]
+cmd = "\\ve"
+expansion = "\\varepsilon"
+[[macros.math]]
+cmd = "\\vn"
+expansion = "\\varnothing"
+[[macros.math]]
+cmd = "\\D"
+expansion = "\\mathrm{D}"
+[[macros.math]]
+cmd = "\\d"
+expansion = "\\mathrm{d}"
+[[macros.math]]
+cmd = "\\e"
+expansion = "\\mathrm{e}"
+[[macros.math]]
+cmd = "\\m"
+expansion = "\\mathrm{m}"
+[[macros.math]]
+cmd = "\\p"
+expansion = "\\partial"
+[[macros.math]]
+cmd = "\\t"
+expansion = "\\text"
+
+# Greek
+[[macros.math]]
+cmd = "\\a"
+expansion = "\\alpha"
+[[macros.math]]
+cmd = "\\b"
+expansion = "\\beta"
+[[macros.math]]
+cmd = "\\g"
+expansion = "\\gamma"
+[[macros.math]]
+cmd = "\\l"
+expansion = "\\lambda"
+[[macros.math]]
+cmd = "\\s"
+expansion = "\\sigma"
+[[macros.math]]
+cmd = "\\S"
+expansion = "\\Sigma"
+
+# ---------- TikZ symbols ----------
+
+[[macros.tikz_symbols]]
+cmd = "\\halfWedge"
+expansion = "\\curlywedge"
+[[macros.tikz_symbols]]
+cmd = "\\Wedge"
+expansion = "\\bigwedge"
+[[macros.tikz_symbols]]
+cmd = "\\diamondplus"
+expansion = "\\diamond"
+[[macros.tikz_symbols]]
+cmd = "\\diamonddot"
+expansion = "\\diamond"
+
+# ---------- file mappings ----------
+
+[[files]]
+source = "00intro.tex"
+target = "LGATP 0 Introduction.md"
+[[files]]
+source = "01logic.tex"
+target = "LGATP 1 Logic of Propositions and Predicates.md"
+[[files]]
+source = "02axioms.tex"
+target = "LGATP 2 Axioms of Set Theory.md"
+[[files]]
+source = "03classification.tex"
+target = "LGATP 3 Classification of Sets.md"
+[[files]]
+source = "04topology.tex"
+target = "LGATP 4 Topological Spaces Construction and Purpose.md"
+[[files]]
+source = "05topology_inv.tex"
+target = "LGATP 5 Topological Spaces Some Heavily Used Invariants.md"
+[[files]]
+source = "06manifolds.tex"
+target = "LGATP 6 Topological Manifolds and Bundles.md"
+[[files]]
+source = "07differentiable.tex"
+target = "LGATP 7 Differentiable Structures Definition and Classification.md"
+[[files]]
+source = "08tensor_i.tex"
+target = "LGATP 8 Tensor Space Theory I Over a Field.md"
+[[files]]
+source = "09tangent_space.tex"
+target = "LGATP 9 Differential Structures The Pivotal Concept of Tangent Vector Spaces.md"
+[[files]]
+source = "10tangent_bundle.tex"
+target = "LGATP 10 Construction of the Tangent Bundle.md"
+[[files]]
+source = "11tensor_ii.tex"
+target = "LGATP 11 Tensor Space Theory II Over a Ring.md"
+[[files]]
+source = "12grassmann.tex"
+target = "LGATP 12 Grassmann Algebra and de Rham Cohomology.md"
+[[files]]
+source = "13lie_groups.tex"
+target = "LGATP 13 Lie Groups and Their Lie Algebras.md"
+[[files]]
+source = "14classification.tex"
+target = "LGATP 14 Classification of Lie Algebras and Dynkin Diagrams.md"
+[[files]]
+source = "15sl2.tex"
+target = "LGATP 15 The Lie Group SL2C and its Lie Algebra sl2C.md"
+[[files]]
+source = "16dynkin.tex"
+target = "LGATP 16 Dynkin Diagrams from Lie Algebras and Vice Versa.md"
+[[files]]
+source = "17representation.tex"
+target = "LGATP 17 Representation Theory of Lie Groups and Lie Algebras.md"
+[[files]]
+source = "18reconstruction.tex"
+target = "LGATP 18 Reconstruction of a Lie Group from its Algebra.md"
+[[files]]
+source = "19principal.tex"
+target = "LGATP 19 Principal Fibre Bundles.md"
+[[files]]
+source = "20associated.tex"
+target = "LGATP 20 Associated Fibre Bundles.md"
+[[files]]
+source = "21connections.tex"
+target = "LGATP 21 Connections and Connection 1-Forms.md"
+[[files]]
+source = "22yang-mills.tex"
+target = "LGATP 22 Local Representations of a Connection Yang-Mills Fields.md"
+[[files]]
+source = "23parallel.tex"
+target = "LGATP 23 Parallel Transport.md"
+[[files]]
+source = "24curvature.tex"
+target = "LGATP 24 Curvature and Torsion on Principal Bundles.md"
+[[files]]
+source = "25covariant.tex"
+target = "LGATP 25 Covariant Derivatives.md"

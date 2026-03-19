@@ -1,0 +1,36 @@
+## Default profile: minimal settings used as base for all conversions.
+
+[pandoc]
+from_format = "latex"
+to_format = "markdown+fenced_divs+pipe_tables-simple_tables-multiline_tables-grid_tables+tex_math_dollars"
+wrap = "none"
+timeout = 120
+
+[preamble.theorem_styles]
+plain = ["theorem", "corollary", "lemma", "proposition"]
+definition = ["definition"]
+remark = ["example", "notation", "remark", "solution", "note"]
+
+[callouts]
+theorem     = { type = "thm",      name = "Theorem" }
+definition  = { type = "def",      name = "Definition" }
+example     = { type = "example",  name = "Example" }
+proof       = { type = "proof",    name = "Proof" }
+remark      = { type = "remark",   name = "Remark" }
+corollary   = { type = "cor",      name = "Corollary" }
+lemma       = { type = "lem",      name = "Lemma" }
+proposition = { type = "prop",     name = "Proposition" }
+notation    = { type = "note",     name = "Notation" }
+solution    = { type = "solution", name = "Solution" }
+note        = { type = "note",     name = "Note" }
+
+[splice]
+marker = "### Full Lecture Content"
+fix_notable_passages = false
+
+[macros]
+env = []
+math = []
+tikz_symbols = []
+
+# files = []  # No default file mappings; profiles define these

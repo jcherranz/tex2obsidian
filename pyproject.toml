@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tex2obsidian"
+version = "1.0.0"
+description = "Convert LaTeX lecture notes to Obsidian markdown with callouts and MathJax"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+
+[project.scripts]
+tex2obsidian = "tex2obsidian.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+tex2obsidian = ["profiles/*.toml", "pandoc_filters/*.lua"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+markers = ["pandoc: requires pandoc installed"]

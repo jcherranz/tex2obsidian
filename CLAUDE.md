@@ -1,0 +1,36 @@
+# tex2obsidian
+
+LaTeX-to-Obsidian converter. Generic engine in Python, corpus rules in TOML profiles.
+
+## Architecture
+
+Pipeline: preprocess (macro expansion) -> pandoc + Lua filter -> postprocess (callouts, math) -> splice into target .md
+
+- `src/tex2obsidian/` - package source
+- `src/tex2obsidian/profiles/` - TOML profile files (default.toml, schuller.toml)
+- `src/tex2obsidian/pandoc_filters/` - Lua filters for pandoc
+- `tests/` - pytest suite; `@pytest.mark.pandoc` marks tests needing pandoc
+
+## Commands
+
+```bash
+make setup       # create venv, install editable with dev deps
+make test        # run unit tests (skip pandoc-dependent)
+make test-full   # run all tests including pandoc integration
+```
+
+## CLI
+
+```bash
+tex2obsidian convert [FILES...] [--config FILE] [--profile NAME] [--dry-run]
+tex2obsidian init [--profile schuller]
+tex2obsidian check [--config FILE]
+```
+
+## Key conventions
+
+- Config loaded from `tex2obsidian.toml` in cwd, or `--config` path
+- Profile = built-in TOML in `profiles/`; user TOML overrides profile defaults
+- All macros, callout maps, file mappings live in profile TOML, not in code
+- `preprocess(tex, config)` and `postprocess(md, config)` are the core transforms
+- Lua filter is resolved at runtime via `importlib.resources`
