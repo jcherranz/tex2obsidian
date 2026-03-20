@@ -73,6 +73,20 @@ def strip_label(text):
     return _strip_cmd_with_braces(text, 'label')
 
 
+def strip_vbox(text):
+    r"""Strip \vbox{...} wrappers, keeping content inside."""
+    target = '\\vbox{'
+    while target in text:
+        idx = text.find(target)
+        brace_start = idx + len(target) - 1
+        content, end = find_brace_group(text, brace_start)
+        if content is not None:
+            text = text[:idx] + content + text[end:]
+        else:
+            break
+    return text
+
+
 def expand_shortcut(text, cmd, expansion):
     """Expand a single macro with word-boundary matching."""
     pattern = re.escape(cmd) + r'(?![a-zA-Z@])'
@@ -152,6 +166,7 @@ def preprocess(tex_content: str, config: Config) -> str:
     text = strip_comments(tex_content)
     text = strip_index(text)
     text = strip_label(text)
+    text = strip_vbox(text)
     text = expand_all_macros(text, config)
     text = convert_ieeeqnarray(text)
     text = handle_tikz_symbols(text, config)
